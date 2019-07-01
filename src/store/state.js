@@ -1,4 +1,5 @@
 let defaultCity = '北京'
+let id = ''
 try {
 	if(localStorage.city){
 		defaultCity = localStorage.city
@@ -6,5 +7,6 @@ try {
 } catch(e){}
 
 export default {
-	city:defaultCity
+	city:defaultCity,
+	id : '001'
 }

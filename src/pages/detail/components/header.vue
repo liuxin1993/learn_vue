@@ -21,7 +21,7 @@
 		},
 		methods:{
 			handleScroll () {
-				let top = document.documentElement.scrollTop				
+				let top = document.documentElement.scrollTop||document.body.scrollTop||window.pageYOffset
 				if(top > 50){
 					let opacity = top/140
 					opacity = opacity > 1 ? 1 : opacity
@@ -34,8 +34,11 @@
 				}
 			}
 		},
-		activated () {
+		activated () {			
 			window.addEventListener("scroll",this.handleScroll)
+		},
+		deactivated () {
+			window.removeEventListener("scroll",this.handleScroll)
 		}
 	}
 </script>

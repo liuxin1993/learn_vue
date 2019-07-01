@@ -2,7 +2,7 @@
 	<div class="recommend">
 		<div class="title">热销推荐</div>
 		<div class="recommend-box1">
-			<router-link :to="'/Detail/'+item.id" class="recommend-box" v-for="item of recommendList" :key="item.id">
+			<div class="recommend-box" v-for="item of recommendList" :key="item.id" @click="handleId(item.id)">
 				<div class="recommend-pic">
 					<img :src="item.imgUrl" >
 				</div>
@@ -11,7 +11,7 @@
 					<div class="recommeng-p">{{item.desc}}</div>
 					<div class="recommend-detail">查看详情</div>
 				</div>
-			</router-link>
+			</div>
 			
 			
 		</div>
@@ -19,10 +19,20 @@
 </template>
 
 <script>
+	import { mapMutations } from 'vuex'
 	export default {
 		name:'HomeRecommend',
 		props:{
 			recommendList:Array
+		},
+		methods:{
+			handleId (id) {
+				this.changId(id)
+				console.log(id)
+				console.log('detail/'+id)
+				this.$router.push('detail/'+id)
+			},
+			...mapMutations(['changId'])
 		}
 	}
 </script>

@@ -2,29 +2,37 @@
 	<div>
 		<div class="banner" @click="handleShow">
 			<div class="banner_pic">
-				<img src="http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg">
+				<img :src="this.bannerImg">
 			</div>
 			<div class="banner_tit">
-				<div class="banner_p">我的发嗲戴假发及哦啊</div>
-				<div class="banner_num"><span class="iconfont">&#xe631;</span>32</div>
+				<div class="banner_p">{{this.sightName}}</div>
+				<div class="banner_num"><span class="iconfont">&#xe631;</span>{{this.gallaryImgs.length}}</div>
 			</div>
 		</div>
-		<common-gallary :imgs="imgs" v-show="showGallary" @close="handleHide"></common-gallary>
+		<fade-animate>
+			<common-gallary :imgs="gallaryImgs" v-if="showGallary" @close="handleHide"></common-gallary>
+		</fade-animate>
 	</div>
 </template>
 
 <script>
 	import CommonGallary from 'common/gallary/gallary'
+	import FadeAnimate from 'common/fade/fadeAnimate'
 	export default {
 		name:'DetailBanner',
+		props:{
+			bannerImg:String,
+			sightName:String,
+			gallaryImgs:Array
+		},
 		data () {
 			return {
-				showGallary:false,
-				imgs:['https://imgs.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_r_800x800_e9c1d2be.jpg','https://imgs.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_r_800x800_56e729ef.png']
+				showGallary:false
 			}
 		},
 		components:{
-			CommonGallary
+			CommonGallary,
+			FadeAnimate
 		},
 		methods:{
 			handleShow () {
