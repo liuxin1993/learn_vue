@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/pages/home/Home'
 import Detail from '@/pages/detail/detail'
 import List from '@/pages/list/list'
+import Mhome from '@/pages/Mhome/Mhome'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/list',
       name: 'List',
       component: List
+    },
+    {
+      path: '/Mhome',
+      name: 'Mhome',
+      component: Mhome
     }
   ],
   scrollBehavior (to, from, savedPosition) {

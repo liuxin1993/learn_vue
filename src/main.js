@@ -7,15 +7,18 @@ import store from './store'
 import 'styles/border.css'
 import 'styles/reset.css'
 import 'styles/iconfont.css'
+import 'mint-ui/lib/style.css'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import $ from 'jquery'
+import Mint from "mint-ui"
 
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
+Vue.use(Mint)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
